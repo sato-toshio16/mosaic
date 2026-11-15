@@ -5,22 +5,24 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
 </head>
 <body>
-  <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr
-  mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-  <a-assets>
+  <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
+    vrmode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
   <!-- 自作コード -->
+  <!-- 画像読み込み -->
   <a-assets>
-  <img id="mosaic" src="./mosaic.png">
+    <img id="mosaic" src="./mosaic.png">
   </a-assets>
+  <!-- カメラ -->
   <a-camera active="false" position="0 0 0"></a-camera>
+  <!-- モザイク -->
   <a-entity mindar-face-target="anchorIndex: 168">
   <a-plane
     src="#mosaic"
     position="0 0 0"
     width="1.2"
     height="1.2"
-    transparent="true">
+    material="shader: flat; transparent: true; side: double">
   </a-plane>
   </a-entity>
     
